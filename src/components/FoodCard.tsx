@@ -1,4 +1,4 @@
-import { Food } from "@/types/Food";
+import { Food } from "@/types";
 import {
   Button,
   Card,
