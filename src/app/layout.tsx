@@ -8,6 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Alex's Kitchen",
   description: "Alex's Kitchen powered by Remote Kitchen",
+  other: {
+    "darkreader-lock": "light",
+    "color-scheme": "light",
+    theme: "light",
+  },
 };
 
 export default function RootLayout({

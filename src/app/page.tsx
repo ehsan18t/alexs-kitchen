@@ -3,6 +3,12 @@ import food from "@/data/food";
 import { Button } from "@mui/material";
 
 import { Food } from "@/types";
+
+export const metadata = {
+  title: "Home | Alex's Kitchen",
+  description: "Home page",
+};
+
 export default function Home() {
   return (
     <main className="py-6 px-4 flex flex-col gap-5">
