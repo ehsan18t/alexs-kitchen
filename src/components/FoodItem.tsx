@@ -15,7 +15,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { CiEdit } from "react-icons/ci";
 import { useDispatch } from "react-redux";
 
-export default function FoodCard({ food }: { food: Food }) {
+export default function FoodItem({ food }: { food: Food }) {
   const dispatch = useDispatch<AppDispatch>();
 
   return (

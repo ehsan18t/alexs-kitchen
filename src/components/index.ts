@@ -1,1 +1,1 @@
-export { default as FoodCard } from "./FoodCard";
+export { default as FoodItem } from "./FoodItem";

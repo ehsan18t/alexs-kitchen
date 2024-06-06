@@ -1,6 +1,6 @@
 "use client";
 
-import { FoodCard } from "@/components";
+import { FoodItem } from "@/components";
 import { AppDispatch, RootState } from "@/store";
 import { useRetrieveFoodsQuery } from "@/store/slices/foodApiSlice";
 import { setFood } from "@/store/slices/foodSlice";
@@ -36,7 +36,7 @@ export default function FoodGrid() {
   return (
     <>
       {foods?.map((food: Food) => (
-        <FoodCard key={food.name} food={food} />
+        <FoodItem key={food.name} food={food} />
       ))}
     </>
   );
