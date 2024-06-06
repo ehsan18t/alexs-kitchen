@@ -1,8 +1,5 @@
-import { FoodCard } from "@/components";
-import food from "@/data/food";
+import FoodGrid from "@/components/FoodGrid";
 import { Button } from "@mui/material";
-
-import { Food } from "@/types";
 
 export const metadata = {
   title: "Home | Alex's Kitchen",
@@ -23,11 +20,7 @@ export default function Home() {
           Add Item
         </Button>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] justify-items-center gap-3">
-        {food?.map((item: Food) => (
-          <FoodCard key={item.name} food={item} />
-        ))}
-      </div>
+      <FoodGrid />
     </main>
   );
 }

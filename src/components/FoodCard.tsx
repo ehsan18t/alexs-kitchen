@@ -1,3 +1,7 @@
+"use client";
+
+import { AppDispatch } from "@/store";
+import { editFood, removeFood } from "@/store/slices/foodSlice";
 import { Food } from "@/types";
 import {
   Button,
@@ -9,8 +13,11 @@ import {
 } from "@mui/material";
 import { AiOutlineDelete } from "react-icons/ai";
 import { CiEdit } from "react-icons/ci";
+import { useDispatch } from "react-redux";
 
 export default function FoodCard({ food }: { food: Food }) {
+  const dispatch = useDispatch<AppDispatch>();
+
   return (
     <Card
       sx={{
@@ -42,10 +49,18 @@ export default function FoodCard({ food }: { food: Food }) {
         disableSpacing
         sx={{ mt: "auto" }}
       >
-        <Button color="primary" variant="outlined">
+        <Button
+          onClick={() => dispatch(editFood(food))}
+          color="primary"
+          variant="outlined"
+        >
           <CiEdit size={25} />
         </Button>
-        <Button color="error" variant="outlined">
+        <Button
+          onClick={() => dispatch(removeFood(food))}
+          color="error"
+          variant="outlined"
+        >
           <AiOutlineDelete size={25} />
         </Button>
       </CardActions>
