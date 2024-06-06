@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Icon = ({ icon }: any) => {
@@ -22,13 +22,13 @@ export default function Footer() {
         />
         <div>
           <p className="text-xs font-semibold">© 2024 Alex&apos;s Kitchen</p>
-          <p className="text-xs">Powered by Remote Kitchen</p>
+          <p className="text-xs">by Remote Kitchen</p>
         </div>
       </div>
       <div className="flex gap-2 items-center">
         <Icon icon={FaXTwitter} />
         <Icon icon={FaFacebookF} />
-        <Icon icon={FaInstagram} />
+        {/* <Icon icon={FaInstagram} /> */}
       </div>
     </div>
   );
