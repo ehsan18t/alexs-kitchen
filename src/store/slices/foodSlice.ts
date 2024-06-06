@@ -1,4 +1,3 @@
-import food from "@/data/food";
 import { Food } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -7,13 +6,16 @@ interface FoodState {
 }
 
 const initialState: FoodState = {
-  foods: food,
+  foods: [],
 };
 
 const foodSlice = createSlice({
   name: "foods",
   initialState,
   reducers: {
+    setFood: (state, action) => {
+      state.foods = action.payload;
+    },
     addFood: (state, action) => {
       state.foods.push(action.payload);
     },
@@ -29,5 +31,5 @@ const foodSlice = createSlice({
   },
 });
 
-export const { addFood, removeFood, editFood } = foodSlice.actions;
+export const { setFood, addFood, removeFood, editFood } = foodSlice.actions;
 export default foodSlice.reducer;

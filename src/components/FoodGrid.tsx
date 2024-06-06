@@ -1,28 +1,43 @@
 "use client";
 
 import { FoodCard } from "@/components";
-import { RootState } from "@/store";
+import { AppDispatch, RootState } from "@/store";
 import { useRetrieveFoodsQuery } from "@/store/slices/foodApiSlice";
+import { setFood } from "@/store/slices/foodSlice";
 import { Food } from "@/types";
-import { useSelector } from "react-redux";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function FoodGrid() {
-  const { data, error, isLoading } = useRetrieveFoodsQuery({
+  const dispatch = useDispatch<AppDispatch>();
+  const { data, isLoading, isSuccess } = useRetrieveFoodsQuery({
     start: 0,
     end: 10,
   });
-
-  console.log(data);
 
   const foods: Food[] = useSelector(
     (state: RootState) => state.root.food.foods
   );
 
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(setFood(data));
+    }
+  }, [isSuccess, data, dispatch]);
+
+  if (isLoading)
+    return (
+      <div className="w-full pt-52 flex justify-center items-center">
+        <CircularProgress size={100} color="success" />;
+      </div>
+    );
+
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] justify-items-center gap-3">
+    <>
       {foods?.map((food: Food) => (
         <FoodCard key={food.name} food={food} />
       ))}
-    </div>
+    </>
   );
 }
