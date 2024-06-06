@@ -21,7 +21,7 @@ export default function Footer() {
           alt=""
         />
         <div>
-          <p className="text-xs font-semibold">© 2024 Alex's Kitchen</p>
+          <p className="text-xs font-semibold">© 2024 Alex&apos;s Kitchen</p>
           <p className="text-xs">Powered by Remote Kitchen</p>
         </div>
       </div>
