@@ -23,7 +23,7 @@ export default function Home() {
           Add Item
         </Button>
       </div>
-      <div className="px-2 grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] justify-items-center gap-3">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] justify-items-center gap-3">
         {food?.map((item: Food) => (
           <FoodCard key={item.name} food={item} />
         ))}
