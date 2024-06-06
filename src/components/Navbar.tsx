@@ -79,11 +79,11 @@ export default function Navbar(props: Props) {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
           >
-            <RiMenu4Fill color="#557174" />
+            <RiMenu4Fill color="#333 " />
           </IconButton>
           <img src="/logo.svg" className="h-16 py-1" alt="" />
           <Box
-            bgcolor={alpha("rgb(247, 247, 232)", 0.8)}
+            bgcolor={alpha("#f4f4f4", 0.8)}
             borderRadius={2}
             sx={{ display: { xs: "none", sm: "block" } }}
           >
@@ -91,7 +91,7 @@ export default function Navbar(props: Props) {
               <Button
                 className="hover:bg-primary/30"
                 key={item}
-                sx={{ color: "#557174" }}
+                sx={{ color: "GrayText" }}
               >
                 {item}
               </Button>

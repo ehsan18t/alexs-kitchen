@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* https://colorhunt.co/palette/f7f7e8c7cfb79dad7f557174 */
-    --background: 247, 247, 232;
+    --background: 244, 244, 244;
     --foreground: 85, 113, 116;
     --primary: 157, 173, 127;
     --secondary: 199, 207, 183;
