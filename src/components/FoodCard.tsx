@@ -41,7 +41,7 @@ export default function FoodCard({ food }: { food: Food }) {
         </Typography>
       </CardContent>
       <CardActions
-        className="flex gap-2 p-2 mx-2 mb-2 items-center"
+        className="flex flex-wrap gap-2 p-2 mx-2 mb-2 items-center"
         disableSpacing
         sx={{ mt: "auto" }}
       >
