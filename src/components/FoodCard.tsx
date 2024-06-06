@@ -1,27 +1,17 @@
 "use client";
 
 import { AppDispatch } from "@/store";
-import { editFood, removeFood } from "@/store/slices/foodSlice";
 import { Food } from "@/types";
 import {
-  Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
   Typography,
 } from "@mui/material";
-import { AiOutlineDelete } from "react-icons/ai";
-import { CiEdit } from "react-icons/ci";
 import { useDispatch } from "react-redux";
 
-export default function FoodItem({
-  food,
-  onFoodSelect,
-}: {
-  food: Food;
-  onFoodSelect: (food: Food) => void;
-}) {
+export default function FoodCard({ food }: { food: Food }) {
   const dispatch = useDispatch<AppDispatch>();
 
   return (
@@ -33,13 +23,12 @@ export default function FoodItem({
       }}
     >
       <CardMedia
-        onClick={() => onFoodSelect(food)}
         component="img"
         alt="green iguana"
         height="140"
         image={food.thumbnail}
       />
-      <CardContent onClick={() => onFoodSelect(food)}>
+      <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {food.name}
         </Typography>
@@ -52,24 +41,23 @@ export default function FoodItem({
         </Typography>
       </CardContent>
       <CardActions
-        className="flex justify-between px-4 mb-2"
+        className="flex gap-2 p-2 mx-2 mb-2 items-center"
         disableSpacing
         sx={{ mt: "auto" }}
       >
-        <Button
-          onClick={() => dispatch(editFood(food))}
-          color="primary"
-          variant="outlined"
-        >
-          <CiEdit size={25} />
-        </Button>
-        <Button
-          onClick={() => dispatch(removeFood(food))}
-          color="error"
-          variant="outlined"
-        >
-          <AiOutlineDelete size={25} />
-        </Button>
+        <Typography gutterBottom variant="h6" component="div">
+          Ingredients:{" "}
+        </Typography>
+        {food.ingredients.map((ingredient, index) => (
+          <Typography
+            className="p-1 px-2 border-[1px] rounded-md border-primary"
+            key={index}
+            variant="body2"
+            color="text.secondary"
+          >
+            {ingredient}
+          </Typography>
+        ))}
       </CardActions>
     </Card>
   );

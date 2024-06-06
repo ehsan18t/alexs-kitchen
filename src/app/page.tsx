@@ -22,10 +22,7 @@ export default function Home() {
           </Button>
         </div>
       </div>
-
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] justify-items-center gap-3">
-        <FoodGrid />
-      </div>
+      <FoodGrid />
     </main>
   );
 }
