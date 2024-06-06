@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import { Footer, Navbar } from "@/components";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -27,6 +27,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <div className="mt-16">{children}</div>
+          <Footer />
         </Providers>
       </body>
     </html>
