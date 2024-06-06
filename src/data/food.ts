@@ -1,5 +1,6 @@
 const foods = [
   {
+    id: 1,
     name: "Pizza Margherita",
     ingredients: [
       "Pizza dough",
@@ -15,6 +16,7 @@ const foods = [
       "https://www.tasteatlas.com/images/dishes/1501b7a18cab4f97b3cb834157712052.jpg",
   },
   {
+    id: 2,
     name: "Sushi",
     ingredients: [
       "Vinegared rice",
@@ -28,6 +30,7 @@ const foods = [
       "https://www.tasteatlas.com/Images/Dishes/fde953e5aa504e8c83a84691582b0399.jpg",
   },
   {
+    id: 3,
     name: "Burger",
     ingredients: [
       "Beef patty",
@@ -45,6 +48,7 @@ const foods = [
       "https://www.tasteatlas.com/Images/Dishes/223d2928b1e04701854f387c30d940f0.jpg",
   },
   {
+    id: 4,
     name: "Pad Thai",
     ingredients: [
       "Rice noodles",
@@ -62,6 +66,7 @@ const foods = [
       "https://www.tasteatlas.com/images/dishes/ad3ef1fb39eb42958e7462961951e45c.jpg",
   },
   {
+    id: 5,
     name: "Tacos",
     ingredients: [
       "Tortillas",
@@ -78,6 +83,7 @@ const foods = [
       "https://www.tasteatlas.com/images/dishes/967fe03b58464dad9f82d91650d98824.jpg",
   },
   {
+    id: 6,
     name: "Ramen",
     ingredients: [
       "Noodles",
@@ -94,6 +100,7 @@ const foods = [
       "https://www.tasteatlas.com/images/dishes/b6b9680a32c84a9381a1ea5f5e529698.jpg",
   },
   {
+    id: 7,
     name: "Paella",
     ingredients: [
       "Rice",
@@ -110,6 +117,7 @@ const foods = [
       "https://www.tasteatlas.com/images/dishes/0b456cded8e245acb83036114c806091.jpg",
   },
   {
+    id: 8,
     name: "Bibimbap",
     ingredients: [
       "Rice",
@@ -126,6 +134,7 @@ const foods = [
       "https://www.tasteatlas.com/images/dishes/4dd65e828a014639994d77ab09f5dba5.jpg",
   },
   {
+    id: 9,
     name: "Dim Sum",
     ingredients: [
       "Dumpling wrappers",
@@ -140,6 +149,7 @@ const foods = [
       "https://www.tasteatlas.com/images/dishes/a000ac2b437b4c5aae6ca6b6b8ac384f.jpg",
   },
   {
+    id: 10,
     name: "Falafel",
     ingredients: [
       "Chickpeas",
