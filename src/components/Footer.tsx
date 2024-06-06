@@ -13,7 +13,7 @@ const Icon = ({ icon }: any) => {
 
 export default function Footer() {
   return (
-    <div className="h-16 flex justify-between items-center mx-8 border-t-[1px] border-primary">
+    <div className="h-16 flex justify-between items-center mx-4 border-t-[1px] border-primary">
       <div className="flex gap-4 items-center">
         <img
           src="/logo.svg"
