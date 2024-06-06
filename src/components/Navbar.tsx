@@ -1,5 +1,6 @@
 "use client";
 
+import { alpha } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -34,7 +35,13 @@ export default function Navbar(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography
+        variant="h5"
+        sx={{
+          color: "#557174",
+          my: 2,
+        }}
+      >
         {name}
       </Typography>
       <Divider />
@@ -59,7 +66,11 @@ export default function Navbar(props: Props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar sx={{ bgcolor: "#557174" }} component="nav">
+      <AppBar
+        color="transparent"
+        sx={{ backdropFilter: "blur(10px)" }}
+        component="nav"
+      >
         <Toolbar className="flex justify-between">
           <IconButton
             color="inherit"
@@ -68,21 +79,19 @@ export default function Navbar(props: Props) {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
           >
-            <RiMenu4Fill />
+            <RiMenu4Fill color="#557174" />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          <img src="/logo.svg" className="h-16 py-1" alt="" />
+          <Box
+            bgcolor={alpha("rgb(247, 247, 232)", 0.8)}
+            borderRadius={2}
+            sx={{ display: { xs: "none", sm: "block" } }}
           >
-            {name}
-          </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Button
                 className="hover:bg-primary/30"
                 key={item}
-                sx={{ color: "#fff" }}
+                sx={{ color: "#557174" }}
               >
                 {item}
               </Button>
