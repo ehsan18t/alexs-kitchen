@@ -17,7 +17,12 @@ const foodSlice = createSlice({
       state.foods = action.payload;
     },
     addFood: (state, action) => {
-      state.foods.push(action.payload);
+      // find find max id
+      const maxId = state.foods.reduce((max, food) => {
+        return food.id > max ? food.id : max;
+      }, 0);
+
+      state.foods.push({ ...action.payload, id: maxId + 1 });
     },
     removeFood: (state, action) => {
       state.foods = state.foods.filter((food) => food.id !== action.payload.id);
