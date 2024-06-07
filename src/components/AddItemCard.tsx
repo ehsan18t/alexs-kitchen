@@ -9,26 +9,18 @@ import ItemForm from "./ItemForm";
 
 export default function AddItemCard() {
   const dispatch = useDispatch();
+
+  const [selectedFood, setSelectedFood] = useState({} as Food);
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const newFood: Food = {
-      id: -1,
-      name: formData.get("name") as string,
-      thumbnail: formData.get("thumbnail") as string,
-      description: formData.get("description") as string,
-      ingredients: (formData.get("ingredients") as string).split(","),
-    };
-
-    dispatch(addFood(newFood));
+    dispatch(addFood(selectedFood));
     handleClose();
   };
-
-  const handleOnChangeIngredient = (event: any, ing: string) => {};
 
   return (
     <>
@@ -47,7 +39,7 @@ export default function AddItemCard() {
         open={open}
         handleOnClose={handleClose}
         handleOnSubmit={handleSubmit}
-        handleOnChangeIngredient={handleOnChangeIngredient}
+        setItem={setSelectedFood}
       />
     </>
   );

@@ -16,7 +16,7 @@ interface ItemFormProps {
   open: boolean;
   handleOnClose: () => void;
   handleOnSubmit: (event: any) => void;
-  handleOnChangeIngredient: (event: any, ing: string) => void;
+  setItem: (food: Food) => void;
 }
 
 const style = {
@@ -35,7 +35,23 @@ export default function ItemForm({
   handleOnSubmit,
   handleOnClose,
   item = {} as Food,
+  setItem,
 }: ItemFormProps) {
+  const handleOnChange = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target.form as HTMLFormElement);
+    const newFood: Food = {
+      id: item ? item.id : -1,
+      name: formData.get("name") as string,
+      thumbnail: formData.get("thumbnail") as string,
+      description: formData.get("description") as string,
+      ingredients: (formData.get("ingredients") as string)?.split(",") || [], // Handle empty ingredient field
+    };
+
+    setItem(newFood);
+  };
+
   return (
     <Modal
       sx={{ backdropFilter: "blur(10px)" }}
@@ -45,7 +61,12 @@ export default function ItemForm({
       aria-describedby="modal-modal-description"
     >
       <Box borderRadius={20} sx={style}>
-        <form onSubmit={handleOnSubmit}>
+        <form
+          id="form"
+          name="form"
+          onSubmit={handleOnSubmit}
+          onChange={handleOnChange}
+        >
           <Card
             sx={{
               height: "100%",
