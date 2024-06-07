@@ -1,29 +1,13 @@
-"use client";
-
-import { AppDispatch } from "@/store";
-import { removeFood } from "@/store/slices/foodSlice";
 import { Food } from "@/types";
 import {
-  Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
   Typography,
 } from "@mui/material";
-import { AiOutlineDelete } from "react-icons/ai";
-import { useDispatch } from "react-redux";
-import EditItem from "./EditItem";
 
-export default function FoodItem({
-  food,
-  onFoodSelect,
-}: {
-  food: Food;
-  onFoodSelect: (food: Food) => void;
-}) {
-  const dispatch = useDispatch<AppDispatch>();
-
+export default function FoodViewModal({ food }: { food: Food }) {
   return (
     <Card
       sx={{
@@ -33,13 +17,12 @@ export default function FoodItem({
       }}
     >
       <CardMedia
-        onClick={() => onFoodSelect(food)}
         component="img"
         alt="green iguana"
         height="140"
         image={food.thumbnail}
       />
-      <CardContent onClick={() => onFoodSelect(food)}>
+      <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {food.name}
         </Typography>
@@ -52,18 +35,23 @@ export default function FoodItem({
         </Typography>
       </CardContent>
       <CardActions
-        className="flex justify-between px-4 mb-2"
+        className="flex flex-wrap gap-2 p-2 mx-2 mb-2 items-center"
         disableSpacing
         sx={{ mt: "auto" }}
       >
-        <EditItem food={food} />
-        <Button
-          onClick={() => dispatch(removeFood(food))}
-          color="error"
-          variant="outlined"
-        >
-          <AiOutlineDelete size={25} />
-        </Button>
+        <Typography gutterBottom variant="h6" component="div">
+          Ingredients:{" "}
+        </Typography>
+        {food.ingredients.map((ingredient, index) => (
+          <Typography
+            className="p-1 px-2 border-[1px] rounded-md border-primary"
+            key={index}
+            variant="body2"
+            color="text.secondary"
+          >
+            {ingredient}
+          </Typography>
+        ))}
       </CardActions>
     </Card>
   );

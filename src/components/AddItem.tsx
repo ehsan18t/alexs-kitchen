@@ -5,9 +5,9 @@ import { Food } from "@/types";
 import { Button } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import ItemForm from "./ItemForm";
+import FoodForm from "./FoodForm";
 
-export default function AddItemCard() {
+export default function AddItem() {
   const dispatch = useDispatch();
 
   const [selectedFood, setSelectedFood] = useState({} as Food);
@@ -34,7 +34,7 @@ export default function AddItemCard() {
       >
         Add Item
       </Button>
-      <ItemForm
+      <FoodForm
         formTitle="Add New Food Item"
         open={open}
         handleOnClose={handleClose}

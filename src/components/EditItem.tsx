@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import { useDispatch } from "react-redux";
-import ItemForm from "./ItemForm";
+import FoodForm from "./FoodForm";
 
 export default function EditItem({ food }: { food: Food }) {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ export default function EditItem({ food }: { food: Food }) {
         <CiEdit size={25} />
       </Button>
 
-      <ItemForm
+      <FoodForm
         item={selectedFood}
         formTitle="Edit Food Item"
         open={open}

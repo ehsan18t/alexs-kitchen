@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 
-interface ItemFormProps {
+interface FoodFormProps {
   formTitle: string;
   item?: Food;
   open: boolean;
@@ -29,14 +29,14 @@ const style = {
   border: "0px solid #000",
 };
 
-export default function ItemForm({
+export default function FoodForm({
   formTitle,
   open,
   handleOnSubmit,
   handleOnClose,
   item = {} as Food,
   setItem,
-}: ItemFormProps) {
+}: FoodFormProps) {
   const handleOnChange = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 

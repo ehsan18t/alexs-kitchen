@@ -1,6 +1,6 @@
 "use client";
 
-import { FoodItem } from "@/components";
+import { FoodCard } from "@/components";
 import { AppDispatch, RootState } from "@/store";
 import { useRetrieveFoodsQuery } from "@/store/slices/foodApiSlice";
 import { setFood } from "@/store/slices/foodSlice";
@@ -10,7 +10,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Modal from "@mui/material/Modal";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import FoodCard from "./FoodCard";
+import FoodViewModal from "./FoodViewModal";
 
 const style = {
   position: "absolute" as "absolute",
@@ -57,7 +57,7 @@ export default function FoodGrid() {
   return (
     <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] justify-items-center gap-3">
       {foods?.map((food: Food) => (
-        <FoodItem
+        <FoodCard
           onFoodSelect={() => {
             setSelectedFood(food);
             handleOpen();
@@ -74,7 +74,7 @@ export default function FoodGrid() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <FoodCard food={selectedFood} />
+          <FoodViewModal food={selectedFood} />
         </Box>
       </Modal>
     </div>
