@@ -1,5 +1,6 @@
 import { Food } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
+import { Bounce, toast } from "react-toastify";
 
 interface FoodState {
   foods: Food[];
@@ -9,6 +10,20 @@ interface FoodState {
 const initialState: FoodState = {
   foods: [],
   backupFoods: null,
+};
+
+const successToast = async (message: string) => {
+  toast.success(message, {
+    position: "top-center",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    transition: Bounce,
+  });
 };
 
 const foodSlice = createSlice({
@@ -25,15 +40,18 @@ const foodSlice = createSlice({
       }, 0);
 
       state.foods.push({ ...action.payload, id: maxId + 1 });
+      successToast("Food Added Successfully!");
     },
     removeFood: (state, action) => {
       state.foods = state.foods.filter((food) => food.id !== action.payload.id);
+      successToast("Food Removed Successfully!");
     },
     editFood: (state, action) => {
       const index = state.foods.findIndex(
         (food) => food.id === action.payload.id
       );
       state.foods[index] = action.payload;
+      successToast("Food Edited Successfully!");
     },
     searchFood: (state, action) => {
       if (state.backupFoods === null) {
