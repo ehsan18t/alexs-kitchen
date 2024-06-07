@@ -1,10 +1,12 @@
 "use client";
 
+import { searchFood } from "@/store/slices/foodSlice";
 import InputBase from "@mui/material/InputBase";
 import { alpha, styled } from "@mui/material/styles";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { useDispatch } from "react-redux";
 
 const Search = styled("div")(() => ({
   borderRadius: "5px",
@@ -58,53 +60,33 @@ interface SearchBarProps {
   height?: string;
   placeholder?: string;
   value?: string;
-  onChange?: (value: string) => void;
-  onCancelResearch?: (value: string) => void;
-  onSearch?: (value: string) => void;
   style?: React.CSSProperties;
   disabled?: boolean;
-  options?: string[];
 }
 
 const SearchBar = ({
   value,
   width,
-  onChange,
   placeholder,
   height,
-  onCancelResearch,
-  onSearch,
   className,
   style,
   disabled,
 }: SearchBarProps) => {
+  const dispatch = useDispatch();
   const [internalValue, setInternalValue] = useState(value || "");
 
   const handleChange = (e: any) => {
     setInternalValue(e.target.value);
-    if (onChange) {
-      onChange(e.target.value);
-    }
   };
 
   const handleCancel = () => {
     setInternalValue("");
-    if (onCancelResearch) {
-      onCancelResearch(internalValue);
-    }
-  };
-
-  const handleClickOption = (e: any) => {
-    setInternalValue(e.target.textContent);
-    if (onChange) {
-      onChange(e.target.textContent);
-    }
-    if (onSearch) return onSearch(e.target.textContent);
   };
 
   const handleKeyUp = (e: any) => {
-    if (e.keyCode === 13 || (e.code === "Enter" && onSearch)) {
-      onSearch(e?.target?.value);
+    if (e.keyCode === 13 || e.code === "Enter") {
+      dispatch(searchFood(e?.target?.value));
     } else if (e.keyCode === 27 || e.code === "Escape") {
       handleCancel();
     }

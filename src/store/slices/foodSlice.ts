@@ -3,10 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface FoodState {
   foods: Food[];
+  backupFoods?: Food[] | null;
 }
 
 const initialState: FoodState = {
   foods: [],
+  backupFoods: null,
 };
 
 const foodSlice = createSlice({
@@ -33,8 +35,23 @@ const foodSlice = createSlice({
       );
       state.foods[index] = action.payload;
     },
+    searchFood: (state, action) => {
+      if (state.backupFoods === null) {
+        state.backupFoods = state.foods;
+      } else {
+        state.foods = state.backupFoods || [];
+      }
+
+      state.foods = state.foods.filter((food) =>
+        // filter with name, description, and ingredients
+        [food.name, food.description, ...food.ingredients].some((field) =>
+          field.toLowerCase().includes(action.payload.toLowerCase())
+        )
+      );
+    },
   },
 });
 
-export const { setFood, addFood, removeFood, editFood } = foodSlice.actions;
+export const { setFood, addFood, removeFood, editFood, searchFood } =
+  foodSlice.actions;
 export default foodSlice.reducer;
