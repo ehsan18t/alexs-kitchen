@@ -1,7 +1,7 @@
 "use client";
 
 import { AppDispatch } from "@/store";
-import { editFood, removeFood } from "@/store/slices/foodSlice";
+import { removeFood } from "@/store/slices/foodSlice";
 import { Food } from "@/types";
 import {
   Button,
@@ -12,8 +12,8 @@ import {
   Typography,
 } from "@mui/material";
 import { AiOutlineDelete } from "react-icons/ai";
-import { CiEdit } from "react-icons/ci";
 import { useDispatch } from "react-redux";
+import EditItem from "./EditItem";
 
 export default function FoodItem({
   food,
@@ -56,13 +56,7 @@ export default function FoodItem({
         disableSpacing
         sx={{ mt: "auto" }}
       >
-        <Button
-          onClick={() => dispatch(editFood(food))}
-          color="primary"
-          variant="outlined"
-        >
-          <CiEdit size={25} />
-        </Button>
+        <EditItem food={food} />
         <Button
           onClick={() => dispatch(removeFood(food))}
           color="error"
