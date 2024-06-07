@@ -42,6 +42,12 @@ const foodSlice = createSlice({
         state.foods = state.backupFoods || [];
       }
 
+      if (action.payload == "") {
+        state.foods = state.backupFoods || [];
+        state.backupFoods = null;
+        return;
+      }
+
       state.foods = state.foods.filter((food) =>
         // filter with name, description, and ingredients
         [food.name, food.description, ...food.ingredients].some((field) =>

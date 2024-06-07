@@ -1,9 +1,10 @@
 "use client";
 
+import { useDebounce } from "@/hooks";
 import { searchFood } from "@/store/slices/foodSlice";
 import InputBase from "@mui/material/InputBase";
 import { alpha, styled } from "@mui/material/styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { useDispatch } from "react-redux";
@@ -75,21 +76,22 @@ const SearchBar = ({
 }: SearchBarProps) => {
   const dispatch = useDispatch();
   const [internalValue, setInternalValue] = useState(value || "");
+  const debouncedQuery = useDebounce(internalValue, 500);
 
-  const handleChange = (e: any) => {
-    setInternalValue(e.target.value);
+  useEffect(() => {
+    if (debouncedQuery) {
+      dispatch(searchFood(debouncedQuery));
+    } else {
+      dispatch(searchFood(""));
+    }
+  }, [debouncedQuery, dispatch]);
+
+  const handleChange = async (e: any) => {
+    setInternalValue(e.target.value || "");
   };
 
   const handleCancel = () => {
     setInternalValue("");
-  };
-
-  const handleKeyUp = (e: any) => {
-    if (e.keyCode === 13 || e.code === "Enter") {
-      dispatch(searchFood(e?.target?.value));
-    } else if (e.keyCode === 27 || e.code === "Escape") {
-      handleCancel();
-    }
   };
 
   return (
@@ -108,7 +110,6 @@ const SearchBar = ({
             value: internalValue,
           }}
           placeholder={placeholder || "Search"}
-          onKeyUp={handleKeyUp}
           disabled={disabled}
         />
         {internalValue ? (
