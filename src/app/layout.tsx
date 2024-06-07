@@ -47,7 +47,7 @@ export default function RootLayout({
         <meta property="og:site_name" content="Remote Kitchen" />
         <meta
           property="og:image"
-          content="https://alexs-kitchen.vercel.app/og-media/preview.png"
+          content="https://alexs-kitchen.vercel.app/og-media/preview.jpeg"
         />
         <meta property="og:url" content="https://alexs-kitchen.vercel.app" />
         <meta property="og:type" content="website" />
