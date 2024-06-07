@@ -32,7 +32,7 @@ const navItems = [
   },
   {
     name: "Food",
-    href: "/menu",
+    href: "/",
   },
   {
     name: "About",
@@ -40,7 +40,7 @@ const navItems = [
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "/",
   },
 ];
 
@@ -66,8 +66,8 @@ export default function Navbar(props: Props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item.href} disablePadding>
+        {navItems.map((item, index) => (
+          <ListItem key={`${item.name}-${item.href}_${index}`} disablePadding>
             <ListItemButton
               component={Link}
               href={item.href}
@@ -114,7 +114,7 @@ export default function Navbar(props: Props) {
                 component={Link}
                 href={item.href}
                 className="hover:bg-primary/30"
-                key={item.href}
+                key={`${item.name}-${item.href}`}
                 sx={{ color: "GrayText" }}
               >
                 {item.name}
