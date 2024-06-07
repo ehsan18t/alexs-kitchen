@@ -48,7 +48,7 @@ export default function FoodCard({
           variant="body2"
           color="text.secondary"
         >
-          {food.description}
+          {food.description.slice(0, 200) + "..."}
         </Typography>
       </CardContent>
       <CardActions
