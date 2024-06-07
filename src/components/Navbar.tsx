@@ -14,6 +14,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 import * as React from "react";
 import { RiMenu4Fill } from "react-icons/ri";
 
@@ -22,7 +23,24 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ["Home", "Food", "About", "Contact"];
+const navItems = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "Food",
+    href: "/menu",
+  },
+  {
+    name: "About",
+    href: "/about",
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+  },
+];
 
 export default function Navbar(props: Props) {
   const { window } = props;
@@ -47,12 +65,14 @@ export default function Navbar(props: Props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.href} disablePadding>
             <ListItemButton
+              component={Link}
+              href={item.href}
               className="hover:bg-primary/30"
               sx={{ textAlign: "center" }}
             >
-              <ListItemText primary={item} />
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -89,11 +109,13 @@ export default function Navbar(props: Props) {
           >
             {navItems.map((item) => (
               <Button
+                component={Link}
+                href={item.href}
                 className="hover:bg-primary/30"
-                key={item}
+                key={item.href}
                 sx={{ color: "GrayText" }}
               >
-                {item}
+                {item.name}
               </Button>
             ))}
           </Box>
