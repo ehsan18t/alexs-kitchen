@@ -26,11 +26,11 @@ export default function RootLayout({
       <head>
         <meta
           name="keywords"
-          content="Remote Kitchen, SaaS, food items list, responsive UI, food item management, add food item, edit food item, delete food item, UI library, state management, SEO-friendly, inclusive state management, card format, web development, user-friendly, real-time update, no page refresh, web app"
+          content="Alex's Kitchen, Remote Kitchen, SaaS, food items list, responsive UI, food item management, add food item, edit food item, delete food item, UI library, state management, SEO-friendly, inclusive state management, card format, web development, user-friendly, real-time update, no page refresh, web app"
         />
         <meta
           name="description"
-          content="Remote Kitchen offers a responsive, SEO-friendly UI for managing food items. Add, edit, and delete items easily with real-time updates, all in a user-friendly card format."
+          content="Alex's Kitchen offers a responsive, SEO-friendly UI for managing food items. Add, edit, and delete items easily with real-time updates, all in a user-friendly card format."
         />
         <meta name="author" content="Remote Kitchen Development Team" />
         <meta name="robots" content="index, follow" />
@@ -38,13 +38,13 @@ export default function RootLayout({
         {/* <!-- Open Graph tags for social media sharing --> */}
         <meta
           property="og:title"
-          content="Remote Kitchen - Manage Your Food Items Seamlessly"
+          content="Alex's Kitchen - Manage Your Food Items Seamlessly"
         />
         <meta
           property="og:description"
-          content="Experience the convenience of managing your food items with Remote Kitchen. Add, edit, and delete items in a responsive, real-time UI without page refreshes."
+          content="Experience the convenience of managing your food items with Alex's Kitchen. Add, edit, and delete items in a responsive, real-time UI without page refreshes."
         />
-        <meta property="og:site_name" content="Remote Kitchen" />
+        <meta property="og:site_name" content="Alex's Kitchen" />
         <meta
           property="og:image"
           content="https://alexs-kitchen.vercel.app/og-media/preview.jpeg"
