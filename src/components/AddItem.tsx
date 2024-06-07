@@ -1,11 +1,11 @@
 "use client";
 
+import { FoodForm } from "@/components";
 import { addFood } from "@/store/slices/foodSlice";
 import { Food } from "@/types";
 import { Button } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import FoodForm from "./FoodForm";
 
 export default function AddItem() {
   const dispatch = useDispatch();

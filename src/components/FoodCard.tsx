@@ -1,5 +1,6 @@
 "use client";
 
+import { EditItem } from "@/components";
 import { AppDispatch } from "@/store";
 import { removeFood } from "@/store/slices/foodSlice";
 import { Food } from "@/types";
@@ -13,7 +14,6 @@ import {
 } from "@mui/material";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import EditItem from "./EditItem";
 
 export default function FoodCard({
   food,

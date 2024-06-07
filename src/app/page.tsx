@@ -1,6 +1,4 @@
-import AddItem from "@/components/AddItem";
-import FoodGrid from "@/components/FoodGrid";
-import SearchBar from "@/components/Search";
+import { AddItem, FoodGrid, SearchBar } from "@/components";
 
 export const metadata = {
   title: "Home | Alex's Kitchen",

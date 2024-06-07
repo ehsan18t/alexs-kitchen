@@ -1,16 +1,13 @@
 "use client";
 
-import { FoodCard } from "@/components";
+import { FoodCard, FoodViewModal } from "@/components";
 import { AppDispatch, RootState } from "@/store";
 import { useRetrieveFoodsQuery } from "@/store/slices/foodApiSlice";
 import { setFood } from "@/store/slices/foodSlice";
 import { Food } from "@/types";
-import Box from "@mui/material/Box";
-import CircularProgress from "@mui/material/CircularProgress";
-import Modal from "@mui/material/Modal";
+import { Box, CircularProgress, Modal } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import FoodViewModal from "./FoodViewModal";
 
 const style = {
   position: "absolute" as "absolute",
