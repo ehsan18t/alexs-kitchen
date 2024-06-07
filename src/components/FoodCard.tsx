@@ -1,6 +1,3 @@
-"use client";
-
-import { AppDispatch } from "@/store";
 import { Food } from "@/types";
 import {
   Card,
@@ -9,11 +6,8 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import { useDispatch } from "react-redux";
 
 export default function FoodCard({ food }: { food: Food }) {
-  const dispatch = useDispatch<AppDispatch>();
-
   return (
     <Card
       sx={{
