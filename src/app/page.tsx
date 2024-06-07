@@ -1,5 +1,6 @@
 import AddItemCard from "@/components/AddItemCard";
 import FoodGrid from "@/components/FoodGrid";
+import SearchBar from "@/components/Search";
 
 export const metadata = {
   title: "Home | Alex's Kitchen",
@@ -9,9 +10,12 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="py-6 px-4 flex flex-col gap-5">
-      <div className="flex justify-center items-center">
-        <div className="w-4/5 md:w-2/3 lg:w-1/3">
+      <div className="flex justify-between items-center">
+        <div className="w-1/3">
           <AddItemCard />
+        </div>
+        <div className="w-2/4 md:w-1/3">
+          <SearchBar />
         </div>
       </div>
       <FoodGrid />
