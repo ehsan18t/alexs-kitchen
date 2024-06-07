@@ -62,7 +62,7 @@ export default function FoodGrid() {
             setSelectedFood(food);
             handleOpen();
           }}
-          key={food.name}
+          key={`foodgrid_${food.id}`}
           food={food}
         />
       ))}
