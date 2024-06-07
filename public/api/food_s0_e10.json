@@ -89,18 +89,18 @@
   },
   {
     "id": 7,
-    "name": "Paella",
+    "name": "Bafra Pidesi",
     "ingredients": [
-      "Rice",
-      "Saffron",
-      "Chicken",
-      "Seafood",
-      "Green beans",
-      "Tomato",
-      "Olive oil"
+      "Flour",
+      "Yeast",
+      "Ground Beef",
+      "Onion",
+      "Black Pepper",
+      "Butter",
+      "Salt"
     ],
-    "description": "A Spanish rice dish originally from Valencia. Paella is one of the best-known dishes in Spanish cuisine and includes a variety of seafood, meat, and vegetables.",
-    "thumbnail": "https://www.tasteatlas.com/images/dishes/0b456cded8e245acb83036114c806091.jpg"
+    "description": "Bafra pidesi, a traditional Turkish savory pie from Bafra, is known for its unique canoe shape and is about 1 meter (3.2 ft) long and 2.5 cm (1 inch) wide. The dough, made from flour, water, yeast, and salt, is rolled into an oval shape and filled with a mixture of medium-fat ground beef, which has been previously roasted and drained of fat, finely chopped onions, salt, and black pepper.",
+    "thumbnail": "https://www.tasteatlas.com/images/dishes/fc67660375be46f29042bb2691cc7f65.jpg"
   },
   {
     "id": 8,
